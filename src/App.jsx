@@ -1,11 +1,14 @@
 import React, { memo } from 'react'
-import HelloWorld from 'cpns/HelloWorld'
+import { useRoutes } from 'react-router-dom'
+import routes from './router';
 
 const App = memo(() => {
   return (
     <div>
-      <h1>App Page</h1>
-      <HelloWorld />
+      <section className='page'>
+        {useRoutes(routes)}
+      </section>
+      <footer className='footer'>footer</footer>
     </div>
   )
 })
