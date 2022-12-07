@@ -1,29 +1,16 @@
-import React, { memo, useEffect, useState } from 'react'
-import ztRequest from '@/services'
+import React, { memo } from 'react'
 import AppHeader from '@/components/app-header/AppHeader'
+import HomeWrapper from './style'
+import Banners from './cpns/Banners'
 
 const Home = memo(() => {
 
-	const [highscore, setHighscore] = useState({})
-
-
-	useEffect(() => {
-		ztRequest.get({ url: '/home/highscore' }).then(res => {
-			console.log('res:', res);
-			setHighscore(res)
-		})
-	}, [])
-
 	return (
-		<div>
+		<HomeWrapper>
 			<AppHeader />
+			<Banners />
 			<h1>Home Page</h1>
-			{
-				highscore.list?.map(item => (
-					<li key={item.id}>{item.name}</li>
-				))
-			}
-		</div>
+		</HomeWrapper>
 	)
 })
 
