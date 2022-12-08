@@ -15,7 +15,7 @@ module.exports = {
 		alias: {
 			"@": resolve('src'),
 			'cpns': resolve('src/components'),
-			'utils': resolve('src/utils')
+			'utils': resolve('src/utils'),
 		}
 	}
 }

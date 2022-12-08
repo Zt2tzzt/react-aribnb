@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { useRoutes } from 'react-router-dom'
 import routes from './router';
+import AppFooter from '@/components/app-footer/AppFooter';
 
 const App = memo(() => {
   return (
@@ -8,7 +9,7 @@ const App = memo(() => {
       <section className='page'>
         {useRoutes(routes)}
       </section>
-      <footer className='footer'>footer</footer>
+      <AppFooter />
     </div>
   )
 })
