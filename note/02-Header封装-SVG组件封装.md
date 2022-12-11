@@ -89,7 +89,7 @@ export default theme
 
 定义全局的字体大小样式。(src\assets\css\common.less)
 
-# 编写 Profile 里的 Pannel 组件，
+# 编写header right 中 Profile 里的 Pannel 组件，
 
 弹出框 popover 一般会加蒙版，监听蒙版点击，弹出框消失。
 

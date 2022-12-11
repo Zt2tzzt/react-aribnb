@@ -1,0 +1,1 @@
+export const isNotEmptyO = obj => !!Object.keys(obj).length
