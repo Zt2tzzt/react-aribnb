@@ -19,3 +19,7 @@ export const getHomeHotRecommendData = () => ztRequest.get({
 export const getHomeLongforData = () => ztRequest.get({
 	url: '/home/longfor'
 })
+
+export const getHomePlusData = () => ztRequest.get({
+	url: '/home/plus'
+})

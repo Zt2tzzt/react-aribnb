@@ -8,16 +8,18 @@ import SectionV1 from './cpns/section-v1/SectionV1'
 import SectionV2 from './cpns/section-v2/SectionV2'
 import { isNotEmptyO } from '@/utils'
 import Longfor from './cpns/longfor/Longfor'
+import SectionV3 from './cpns/section-v3/SectionV3'
 
 
 const Home = memo(() => {
 
-	const { goodPriceInfo, highScoreInfo, discountInfo, recommendInfo, longforInfo } = useSelector(state => ({
+	const { goodPriceInfo, highScoreInfo, discountInfo, recommendInfo, longforInfo, plusInfo } = useSelector(state => ({
 		goodPriceInfo: state.home.goodPriceInfo,
 		highScoreInfo: state.home.highScoreInfo,
 		discountInfo: state.home.discountInfo,
 		recommendInfo: state.home.recommendInfo,
-		longforInfo: state.home.longforInfo
+		longforInfo: state.home.longforInfo,
+		plusInfo: state.home.plusInfo
 	}), shallowEqual)
 
 	const dispatch = useDispatch()
@@ -36,6 +38,7 @@ const Home = memo(() => {
 				{isNotEmptyO(longforInfo) && <Longfor infoData={longforInfo} /> }
 				{isNotEmptyO(goodPriceInfo) && <SectionV1 infoData={goodPriceInfo} />}
 				{isNotEmptyO(highScoreInfo) && <SectionV1 infoData={highScoreInfo} />}
+				{isNotEmptyO(plusInfo) && <SectionV3 infoData={plusInfo} />}
 			</div>
 		</HomeWrapper>
 	)

@@ -36,6 +36,7 @@ const ScrollViewWrapper = styled.div`
 		overflow: hidden;
 
 		.scroll-content {
+			width: 100%;
 			display: flex;
 			transition: transform 250ms ease;
 		}

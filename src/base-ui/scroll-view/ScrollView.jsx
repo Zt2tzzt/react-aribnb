@@ -10,18 +10,16 @@ const ScrollView = memo((props) => {
 	const [showRight, setShowRight] = useState(false)
 
 	const posIndex = useRef(0) // 滚动到左侧对齐哪个 item 的索引
-	const totalContentRef = useRef()
+	const totalDistanceRef = useRef() // 用于记录可滚动的距离
 	const scrollContentRef = useRef()
 
 	/** 组件渲染完成，判断是否显示右侧按钮 */
 	useEffect(() => {
-		console.log('scrollContentRef:', scrollContentRef.current)
 		const scrollWidth = scrollContentRef.current.scrollWidth // 一共可以滚动的宽度
 		const clientWidth = scrollContentRef.current.clientWidth // 本身占据的宽度
-		console.log('scrollWidth:', scrollWidth, 'clientWidth:', clientWidth)
 		const totalDistance = scrollWidth - clientWidth
 
-		totalContentRef.current = totalDistance
+		totalDistanceRef.current = totalDistance
 		setShowRight(totalDistance > 0)
 	}, [children])
 
@@ -31,7 +29,7 @@ const ScrollView = memo((props) => {
 		const newOffsetLeft = newEl.offsetLeft // offsetLeft 相对于最近的定位元素
 		scrollContentRef.current.style.transform = `translate(-${newOffsetLeft}px)`
 
-		setShowRight(totalContentRef.current > newOffsetLeft)
+		setShowRight(totalDistanceRef.current > newOffsetLeft)
 		setShowLeft(newOffsetLeft > 0)
 	}
 

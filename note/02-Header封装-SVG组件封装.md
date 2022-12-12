@@ -17,10 +17,11 @@ Left、right 设置 flex: 1，center 由内容撑开，这样保证 center 居�
 svg 可用于做优化，通过链接获取图片，使得网站加载的静态资源变小。
 
 - 引入 svg 的2种方式。
-	1. 将 svg 单独拿出来，作为一个图片.svg 文件，在项目中引入（如在 `<img>`、`backgroud-img: url()` 中引入）
+	1. 将 svg 单独拿出来，作为一个 .svg 文件，在项目中引入（如在 `<img>`、`backgroud-img: url()` 中引入）
 	2. 直接将 svg 标签放入到 html 中，好处是加载静态页面时，会将 svg 一同加载下来，无需发送多余的请求加载图片。
 - 项目中采用第二种方式，将 svg 嵌入到网页中，即把 svg 封装成一个 jsx 组件，
 	- 注意：要修改 svg 标签上的 style 属性，使用对象写法。为 style 字符串转对象，去网上找一个封装好的工具。(src\assets\svg\utils\index.js)
+	- svg 放入 jsx 中，有些属性使用“-”的，需要改成驼峰形式。
 	- svg 内部使用了 currentColor，会引用离它最近的父元素的 color
 
 # 管理项目中主题色的2种方案：
@@ -52,8 +53,6 @@ export default theme
 
 
 # 编写 header right 区域，
-
-svg 放入 jsx 中，有些属性使用“-”的，需要改成驼峰形式。
 
 将阴影动画效果抽取并混入，实现复用的效果。
 
@@ -89,11 +88,13 @@ export default theme
 
 定义全局的字体大小样式。(src\assets\css\common.less)
 
-# 编写header right 中 Profile 里的 Pannel 组件，
+# 编写 header right 中 Profile 里的 Pannel 组件，
 
 弹出框 popover 一般会加蒙版，监听蒙版点击，弹出框消失。
 
-而项目中，是监听的 window 窗口点击，Profile 消失。(src\components\app-header\cpns\right\Right.jsx)
+而项目中，是监听的 window 窗口点击，Profile 消失。
+
+src\components\app-header\cpns\right\Right.jsx
 
 ```js
 useEffect(() => {

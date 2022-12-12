@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 import LongforItemWrapper from './style'
 
 const LongforItem = memo((props) => {
-	const {itemData } = props;
+	const { itemData } = props;
 
 	return (
 		<LongforItemWrapper>

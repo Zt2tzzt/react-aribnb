@@ -58,7 +58,7 @@ const RoomItemWrapper = styled.div`
 `
 ```
 
-封装一个可以横向滚动的选项卡。监听选项卡中的 item 点击，改变样式。
+封装一个可以横向滚动的选项卡区域 SectionTabs。监听选项卡中的 item 点击，改变样式。
 
 src\components\section-tabs\SectionTabs.jsx
 
@@ -76,9 +76,9 @@ src\components\section-tabs\SectionTabs.jsx
 
 # 抽取 HomeSectionV2 组件（性能优化）
 
-选项卡选中的初始化值如何设置？
+HomeSectionV2 中有 SectionTabs 组件，在选项卡中，选中的 tab item，初始化值如何设置？
 
-- 思路一：取出对象中第一个 key，并设置。（错误思路，第一次渲染对象为空对象，useState 初始化了空值）
+- 思路一：取出对象中第一个 key，并设置。（错误的做法，第一次渲染对象为空对象，useState 初始化了空值）
 - 思路二：使用 useEffect 监听 infoData 是否改变，并设置新值。（这样会造成组件渲染3次）
 - 思路三：当传入的 infoData 有值时，再渲染 HomeSectionV2 组件。（最佳实践）
 
