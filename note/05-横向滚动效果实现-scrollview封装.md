@@ -6,7 +6,7 @@
 	- 使用 ref 记录可滚动的距离，和滚动 item 的索引。
 - 左边按钮：只要往右边滚动了，就显示左边按钮。
 
-滚动的内容由外界传入。
+滚动的内容由外界通过插槽传入。
 
 src\base-ui\scroll-view\ScrollView.jsx
 

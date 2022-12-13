@@ -1,5 +1,4 @@
 import React, { memo, useEffect } from 'react'
-import AppHeader from '@/components/app-header/AppHeader'
 import HomeWrapper from './style'
 import Banners from './cpns/banner/Banners'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
@@ -30,7 +29,6 @@ const Home = memo(() => {
 
 	return (
 		<HomeWrapper>
-			<AppHeader />
 			<Banners />
 			<div className="content">
 				{isNotEmptyO(discountInfo) && <SectionV2 infoData={discountInfo} />}
