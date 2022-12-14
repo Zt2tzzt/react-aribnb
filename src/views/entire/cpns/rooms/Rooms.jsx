@@ -1,7 +1,8 @@
 import RoomItem from '@/components/room-item/RoomItem';
-import React, { memo } from 'react'
-import { shallowEqual } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { changeDetailInfoAction } from '@/store/features/detail';
+import React, { memo, useCallback } from 'react'
+import { useDispatch, shallowEqual,	useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import RoomsWrapper from './style';
 
 const Rooms = memo((props) => {
@@ -10,6 +11,13 @@ const Rooms = memo((props) => {
 		totalCount: state.entire.totalCount,
 		isLoading: state.entire.isLoading
 	}), shallowEqual)
+
+	const navigate = useNavigate()
+	const dispatch = useDispatch()
+	const handleRoomItemClick = useCallback((itemData) => {
+		dispatch(changeDetailInfoAction(itemData))
+		navigate('/detail')
+	}, [navigate, dispatch])
 
 	return (
 		<RoomsWrapper>
@@ -20,6 +28,7 @@ const Rooms = memo((props) => {
 						itemData={item}
 						itemWidth='20%'
 						key={item.id}
+						handleRoomItemClick={handleRoomItemClick}
 					/>
 				))}
 			</div>

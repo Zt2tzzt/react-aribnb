@@ -21,7 +21,6 @@ const Pagination = memo((props) => {
 	const onPageChange = (e, pageCount) => {
 		window.scrollTo(0, 0) // 回到顶部
 		dispatch(fetchRoomListAction(pageCount - 1))
-
 	}
 
 	return (
