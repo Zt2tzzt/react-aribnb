@@ -25,11 +25,9 @@ export const fetchRoomListAction = (page = 0) => (dispatch, getState) => {
 
 	getEntireRoomList(page * 20).then(res => {
 		console.log('EntireRooms res:', res)
-		const roomList = res.list
-		const totalCount = res.totalCount
 
-		dispatch(changeRoomListAction(roomList))
-		dispatch(changeTotalCountAction(totalCount))
+		dispatch(changeRoomListAction(res.list))
+		dispatch(changeTotalCountAction(res.totalCount))
 
 		dispatch(changeIsLoadingAction(false)) // 改 Loading 状态
 	})

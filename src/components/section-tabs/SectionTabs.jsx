@@ -4,12 +4,12 @@ import React, { memo, useState } from 'react'
 import SectionTabsWrapper from './style';
 
 const SectionTabs = memo((props) => {
-	const { tabNames, tabClick } = props
+	const { tabNames, handleTabClick } = props
 	const [currentIndex, setCurrentIndex] = useState(0)
 
 	const onTabClick = (index, item) => {
 		setCurrentIndex(index)
-		tabClick(index, item)
+		handleTabClick(index, item)
 	}
 
 	return (

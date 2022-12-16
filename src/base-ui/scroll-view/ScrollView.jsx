@@ -11,6 +11,7 @@ const ScrollView = memo((props) => {
 
 	const posIndex = useRef(0) // 滚动到左侧对齐哪个 item 的索引
 	const totalDistanceRef = useRef() // 用于记录可滚动的距离
+	
 	const scrollContentRef = useRef()
 
 	/** 组件渲染完成，判断是否显示右侧按钮 */

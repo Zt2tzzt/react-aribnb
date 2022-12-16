@@ -10,7 +10,7 @@
 
 src\base-ui\scroll-view\ScrollView.jsx
 
-# 编写 LongFor 组件。（样式难点）
+# 编写 LongFor 组件（样式难点）.
 
 在其中应用 ScrollView 组件。封装 LongForItem 组件。
 

@@ -13,7 +13,7 @@ const RoomItem = memo((props) => {
 
 	const sliderRef = useRef()
 
-	const onControlClick = (isRight = true) => {
+	const onControlClick = (e, isRight = true) => {
 		// 轮播图切换
 		isRight ? sliderRef.current.next() : sliderRef.current.prev()
 		// 计算最新索引
@@ -22,6 +22,8 @@ const RoomItem = memo((props) => {
 		if (newIndex < 0) newIndex = picsLength - 1
 		if (newIndex > picsLength - 1) newIndex = 0
 		setSelectIndex(newIndex)
+
+		e.stopPropagation()
 	}
 
 	const onRoomItemClick = () => {
@@ -37,10 +39,10 @@ const RoomItem = memo((props) => {
 	const sliderElement = (
 		<div className="slider">
 			<div className="control">
-				<div className="btn left" onClick={e => onControlClick(false)}>
+				<div className="btn left" onClick={e => onControlClick(e, false)}>
 					<IconArrowLeft width="30" height="30" />
 				</div>
-				<div className="btn right" onClick={e => onControlClick(true)}>
+				<div className="btn right" onClick={e => onControlClick(e, true)}>
 					<IconArrowRight width="30" height="30" />
 				</div>
 			</div>

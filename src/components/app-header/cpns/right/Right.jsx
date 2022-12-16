@@ -4,8 +4,6 @@ import IconMenu from '@/assets/svg/IconMenu'
 import React, { memo, useEffect, useState } from 'react'
 import RightWrapper from './sstyle'
 
-
-
 const Right = memo(() => {
 	const [showPanel, setShowPanel] = useState(false)
 

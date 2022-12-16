@@ -55,7 +55,7 @@ src\views\entire\Entire.jsx
 
 ```js
 const dispatch = useDispatch()
-	useEffect(() => {
+useEffect(() => {
 	dispatch(fetchRoomListAction())
 }, [dispatch])
 ```
@@ -160,6 +160,18 @@ const onPageChange = (e, pageCount) => {
 }
 ```
 
+src\views\entire\cpns\rooms\Rooms.jsx
+
+```jsx
+const {roomList, totalCount, isLoading} = useSelector(state => ({
+  isLoading: state.entire.isLoading
+}), shallowEqual)
+
+{isLoading && <div className='cover'></div>}
+```
+
+
+
 # 在 RomItem 上实现轮播图，并加上两个箭头（难点）。
 
 从 AntDesign 中引入轮播图组件 `<Carousel>`。
@@ -193,7 +205,7 @@ src\components\room-item\style.js
 src\components\room-item\RoomItem.jsx
 
 ```js
-const onControlClick = (isRight = true) => {
+const onControlClick = (e, isRight = true) => {
 	// 轮播图切换
 	isRight ? sliderRef.current.next() : sliderRef.current.prev()
 	// 计算最新索引
@@ -202,13 +214,15 @@ const onControlClick = (isRight = true) => {
 	if (newIndex < 0) newIndex = picsLength - 1
 	if (newIndex > picsLength - 1) newIndex = 0
 	setSelectIndex(newIndex)
+  
+  e.stopPropagation()
 }
 ```
 
 封装 indicator 组件，点击箭头，指示器和图片切换。
 
 - 在单独的空白页 Demo 中封装好，再放入 RoomItem 中使用。
-- 明确计算公式。
+- 明确移动距离的计算公式。
 - 明确什么时候需要移动，什么时候不需要移动。
 
 > 在计算机中，计算乘法相比除法更快。
@@ -232,7 +246,6 @@ useEffect(() => {
 	// 特殊情况处理
 	// 左边的特殊情况处理
 	if (distance < 0) distance = 0
-
 	// 右边的特殊情况处理
 	const totalDistance = contentScroll - contentWidth
 	if (distance > totalDistance) distance = totalDistance
@@ -244,12 +257,14 @@ useEffect(() => {
 
 # 点击 RoomItem，跳转到详情页。
 
-- 在 Home 页中不跳转，在 Entire 页中跳转。
-- 将详情页中要展示的数据，放在 Redux 中共享，以便传递。
+在 Home 页中不跳转，在 Entire 页中跳转。
+
+将详情页中要展示的数据，放在 Redux 中共享，以便传递。
 
 src\components\room-item\RoomItem.jsx
 
 ```js
+// 从 eniire 中传递过来 handleRoomItemClick
 const { itemData, itemWidth = '25%', handleRoomItemClick } = props
 
 const onRoomItemClick = () => {

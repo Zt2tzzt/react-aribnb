@@ -112,7 +112,7 @@ useEffect(() => {
 
 # Home Banner 区域编写
 
-项目中编写样式时，`backgroud: url()` 和编写 jsx 时 `<img src="">` 中动态的引入一张本地图片，路径应该如何写。
+webpack 项目环境下，编写样式时，`backgroud: url()` 和编写 jsx 时 `<img src="">` 中动态的引入一张本地图片，路径应该如何写。
 
 ```jsx
 import coverImg from '@/assets/img/cover_01.jpeg'
@@ -120,7 +120,7 @@ import coverImg from '@/assets/img/cover_01.jpeg'
 <img src={coverImg} />
 ```
 
-webpack 项目环境下面是如何引入的。(src\views\home\cpns\style.js)
+src\views\home\cpns\style.js
 
 ```jsx
 import styled from "styled-components";
