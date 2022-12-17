@@ -1,4 +1,5 @@
 import { fetchRoomListAction } from '@/store/features/entire';
+import { changeHeaderConfigAction } from '@/store/features/main';
 import React, { memo, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import Filter from './cpns/filter/Filter';
@@ -11,6 +12,7 @@ const Entire = memo(() => {
 	const dispatch = useDispatch()
 	useEffect(() => {
 		dispatch(fetchRoomListAction())
+		dispatch(changeHeaderConfigAction({ isFixed: true }))
 	}, [dispatch])
 
 	return (

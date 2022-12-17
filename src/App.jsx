@@ -3,8 +3,11 @@ import { useRoutes } from 'react-router-dom'
 import routes from './router';
 import AppFooter from '@/components/app-footer/AppFooter';
 import AppHeader from './components/app-header/AppHeader';
+import { useScrollTop } from './hooks';
 
 const App = memo(() => {
+  useScrollTop()
+  
   return (
     <div>
       <AppHeader />

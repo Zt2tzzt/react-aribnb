@@ -1,6 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const FilterWrapper = styled.section`
+	position: fixed;
+	top: 80px;
+	left: 0;
+	right: 0;
+	z-index: 99;
 	display: flex;
 	align-items: center;
 	height: 48px;

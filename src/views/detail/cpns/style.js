@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const PicturesWrapper = styled.div`
+	position: relative;
 	display: flex;
-	height: 506px;
+	height: 740px;
 	background-color: #000;
 
 	&:hover {
@@ -64,6 +65,18 @@ const PicturesWrapper = styled.div`
 			box-sizing: border-box;
 			border: 1px #000 solid;
 		}
+	}
+
+	.show-btn {
+		position: absolute;
+		z-index: 99;
+		right: 15px;
+		bottom: 15px;
+		line-height: 22px;
+		padding: 6px 15px;
+		border-radius: 4px;
+		background-color: #fff;
+		cursor: pointer;
 	}
 `
 

@@ -8,6 +8,7 @@ import SectionV2 from './cpns/section-v2/SectionV2'
 import { isNotEmptyO } from '@/utils'
 import Longfor from './cpns/longfor/Longfor'
 import SectionV3 from './cpns/section-v3/SectionV3'
+import { changeHeaderConfigAction } from '@/store/features/main'
 
 
 const Home = memo(() => {
@@ -24,6 +25,7 @@ const Home = memo(() => {
 	const dispatch = useDispatch()
 	useEffect(() => {
 		dispatch(fetchHomeDataAction())
+		dispatch(changeHeaderConfigAction({ isFixed: true }))
 	}, [dispatch])
 
 
