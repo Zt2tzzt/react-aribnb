@@ -131,7 +131,12 @@ src\views\entire\cpns\pagination\style.js
 }
 ```
 
-在 Pagination 中应用分页的算法（根据总数和当前页，计算出总页数），并调整样式。
+在 Pagination 中应用分页的算法
+
+- 根据总数（totalCount）和每页数量（PageSize），计算出总页数（totalPage），
+- 根据当前页（currentPage）计算出当前页数量七时至（startCount）和数量结束值（endCount）。
+
+并调整样式。
 
 src\views\entire\cpns\pagination\Pagination.jsx
 
@@ -172,7 +177,7 @@ const {roomList, totalCount, isLoading} = useSelector(state => ({
 
 
 
-# 在 RomItem 上实现轮播图，并加上两个箭头（难点）。
+# 在 RoomItem 上实现轮播图，并加上两个箭头（难点）。
 
 从 AntDesign 中引入轮播图组件 `<Carousel>`。
 
@@ -210,6 +215,7 @@ const onControlClick = (e, isRight = true) => {
 	isRight ? sliderRef.current.next() : sliderRef.current.prev()
 	// 计算最新索引
 	let newIndex = isRight ? selectIndex + 1 : selectIndex - 1
+  // 边界判断
 	const picsLength = itemData.picture_urls.length
 	if (newIndex < 0) newIndex = picsLength - 1
 	if (newIndex > picsLength - 1) newIndex = 0

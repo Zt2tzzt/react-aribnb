@@ -8,7 +8,7 @@ import SectionFooter from '@/components/section-footer/SectionFooter';
 
 const SectionV2 = memo((props) => {
 	const { infoData } = props
-
+	
 	// 思路三
 	const initialName = Object.keys(infoData.dest_list)[0]
 	const [name, setName] = useState(initialName)

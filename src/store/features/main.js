@@ -5,6 +5,7 @@ const mainSlice = createSlice({
 	initialState: {
 		headerConfig: {
 			isFixed: false,
+			topAlpha: false
 		}
 	},
 	reducers: {

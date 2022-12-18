@@ -138,7 +138,7 @@ const onBottomItemClick = index => {
 </div>
 ```
 
-编写 preview 区域隐藏和显示的功能，并添加动画。
+编写下方 preview 区域隐藏和显示的功能，并添加动画。
 
 src\base-ui\picture-browser\PictureBrowser.jsx
 
