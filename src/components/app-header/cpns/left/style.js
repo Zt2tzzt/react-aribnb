@@ -8,7 +8,7 @@ const LeftWrapper = styled.div`
 	.logo {
 		display: block;
 		margin-left: 24px;
-		color: ${props => props.theme.color.primary};
+		color: ${props => props.theme.isAlpha ? '#fff' : props.theme.color.primary};
 		cursor: pointer;
 	}
 `

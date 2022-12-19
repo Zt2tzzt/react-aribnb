@@ -1,9 +1,8 @@
-import { theme } from "antd";
 import styled from "styled-components";
 
 const SearchTabsWrapper = styled.div`
 	display: flex;
-	color: ${props => theme.isAlpha ? '#fff' : '#222'};
+	color: ${props => props.theme.isAlpha ? '#fff' : '#222'};
 
 	.item {
 		position: relative;

@@ -8,20 +8,20 @@ import SearchTabs from './scps/search-tabs/SearchTabs'
 import SearchSection from './scps/search-section/SearchSection'
 
 const Center = memo(props => {
-	const { isSearch, searchBarClick } = props
+	const { isSearch, handleSearchBarClick } = props
 
 	const [tabIndex, setTabIndex] = useState(0)
 	const titles = searchTitles.map(item => item.title)
 
 	const onSearchBtnClick = () => {
-		searchBarClick?.()
+		handleSearchBarClick?.()
 	}
 
 	return (
 		<CenterWrapper>
 			<CSSTransition
 				in={!isSearch}
-				classNames='btn'
+				classNames='bar'
 				timeout={250}
 				unmountOnExit={true}
 			>
@@ -51,7 +51,7 @@ const Center = memo(props => {
 
 Center.propTypes = {
 	isSearch: PropTypes.bool,
-	searchBarClick: PropTypes.func
+	handleSearchBarClick: PropTypes.func
 }
 
 export default Center

@@ -25,7 +25,7 @@ const PictureBrowser = memo(props => {
 	}, [])
 
 	const onCloseBtnClick = () => {
-		if (closeClick) closeClick()
+		closeClick?.()
 	}
 
 	const onControlBtnClick = (isNext = true) => {

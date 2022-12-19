@@ -12,6 +12,7 @@ const RightWrapper = styled.div`
 		display: flex;
 		box-sizing: content-box;
 		margin-right: 8px;
+		color: ${props => props.theme.isAlpha ? '#fff' : props.theme.text.primary};
 
 		.btn {
 			height: 18px;
@@ -22,7 +23,7 @@ const RightWrapper = styled.div`
 			box-sizing: content-box;
 
 			&:hover {
-				background-color: #f5f5f5;
+				background-color: ${props => props.theme.isAlpha ? 'rgba(255,255,255,.3)' : '#f5f5f5'};
 			}
 		}
 	}
