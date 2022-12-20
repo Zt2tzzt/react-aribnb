@@ -20,7 +20,7 @@ const Filter = memo((props) => {
 		const newItems = [...selectItems]
 
 		if (newItems.includes(item)) {
-			const index = newItems.findIndex(ele => ele === item )
+			const index = newItems.findIndex(ele => ele === item)
 			newItems.splice(index, 1)
 		} else {
 			newItems.push(item)
@@ -76,7 +76,7 @@ src\components\app-header\cpns\left\Left.jsx
 
 src\components\room-item\RoomItem.jsx
 
-为避免图片压缩，在 css 中使用 object-fit 属性。
+为避免图片压缩，在 css 中使用 `object-fit` 属性。
 
 src\components\room-item\style.js
 
