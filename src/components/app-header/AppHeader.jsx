@@ -34,7 +34,7 @@ const AppHeader = memo(() => {
 				<div className="content">
 					<div className="top">
 						<Left />
-						<Center isSearch={ isAlpha || isSearch } searchBarClick={e => setIsSearch(true)} />
+						<Center isSearch={ isAlpha || isSearch } handleSearchBarClick={e => setIsSearch(true)} />
 						<Right />
 					</div>
 					<SearchAreaWrapper isSearch={ isAlpha || isSearch } />

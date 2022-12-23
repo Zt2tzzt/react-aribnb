@@ -8,7 +8,7 @@
 
 # 使用 CSS IN JS 的方式来编写样式。
 
-安装 style-component
+安装 `style-component`
 
 Left、right 设置 flex: 1，center 由内容撑开，这样保证 center 居中。
 
@@ -20,7 +20,7 @@ svg 可用于做优化，通过链接获取图片，使得网站加载的静态�
 	1. 将 svg 单独拿出来，作为一个 .svg 文件，在项目中引入（如在 `<img>`、`backgroud-img: url()` 中引入）
 	2. 直接将 svg 标签放入到 html 中，好处是加载静态页面时，会将 svg 一同加载下来，无需发送多余的请求加载图片。
 - 项目中采用第二种方式，将 svg 嵌入到网页中，即把 svg 封装成一个 jsx 组件，
-	- 注意：要修改 svg 标签上的 style 属性，使用对象写法。为 style 字符串转对象，去网上找一个封装好的工具。(src\assets\svg\utils\index.js)
+	- 注意：要修改 svg 标签上的 style 属性，使用对象写法。将 style 属性中的字符串转对象，去网上找一个封装好的工具。(src\assets\svg\utils\index.js)
 	- svg 放入 jsx 中，有些属性使用“-”的，需要改成驼峰形式。
 	- svg 内部使用了 currentColor，会引用离它最近的父元素的 color
 
@@ -110,7 +110,7 @@ useEffect(() => {
 
 
 
-# Home Banner 区域编写
+# Home Banner 区域编写（注意事项）
 
 webpack 项目环境下，编写样式时，`backgroud: url()` 和编写 jsx 时 `<img src="">` 中动态的引入一张本地图片，路径应该如何写。
 

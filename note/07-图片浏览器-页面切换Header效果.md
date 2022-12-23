@@ -212,7 +212,7 @@ console.log('isFixed:', isFixed)
 
 # 监听路径切换，页面滚动到最顶部。
 
-在 App 中进行设置。将逻辑抽取成一个 Hook，useScrollTop。
+在 App 中进行设置。将逻辑抽取成一个 Hook，`useScrollTop`。
 
 src\App.jsx
 
