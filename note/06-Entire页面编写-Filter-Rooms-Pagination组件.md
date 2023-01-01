@@ -76,7 +76,7 @@ src\components\app-header\cpns\left\Left.jsx
 
 src\components\room-item\RoomItem.jsx
 
-为避免图片压缩，在 css 中使用 `object-fit` 属性。
+为避免图片尺寸压缩，在 css 中使用 `object-fit` 属性。
 
 src\components\room-item\style.js
 
@@ -134,7 +134,7 @@ src\views\entire\cpns\pagination\style.js
 在 Pagination 中应用分页的算法
 
 - 根据总数（totalCount）和每页数量（PageSize），计算出总页数（totalPage），
-- 根据当前页（currentPage）计算出当前页数量七时至（startCount）和数量结束值（endCount）。
+- 根据当前页（currentPage）计算出当前页数量起始值（startCount）和数量结束值（endCount）。
 
 并调整样式。
 
