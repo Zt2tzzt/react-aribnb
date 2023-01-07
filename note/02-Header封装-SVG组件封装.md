@@ -79,10 +79,7 @@ const theme = {
 }
 
 export default theme
-
 ```
-
-
 
 # 编写 header center 区域
 
@@ -128,7 +125,7 @@ import coverImg from '@/assets/img/cover_01.jpeg'
 
 const BannersWrapper = styled.div`
 	height: 529px;
-	background: url(${coverImage}) center/cover;
+	background: url(${coverImg}) center/cover;
 `
 ```
 
