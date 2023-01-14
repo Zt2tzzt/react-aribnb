@@ -187,7 +187,7 @@ src\components\room-item\RoomItem.jsx
 import { Carousel } from 'antd';
 ```
 
-在箭头的 jsx 组件中，动态改变箭头大小。
+在箭头（svg 图片）的 jsx 组件中，动态改变箭头大小。
 
 src\components\room-item\RoomItem.jsx
 

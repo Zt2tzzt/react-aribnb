@@ -49,6 +49,7 @@ const PictureBrowser = memo(props => {
 					<IconClose />
 				</div>
 			</div>
+
 			<div className="slider">
 				<div className="control">
 					<div className="btn left" onClick={e => onControlBtnClick(false)}>
@@ -71,6 +72,7 @@ const PictureBrowser = memo(props => {
 					</SwitchTransition>
 				</div>
 			</div>
+			
 			<div className="preview">
 				<div className="info">
 					<div className="desc">
