@@ -1,4 +1,4 @@
-# 编写高评分房源区域。
+# 一、高评分房源区域编写
 
 封装获取高分房源（hight score）的请求。
 
@@ -13,9 +13,9 @@ src\views\home\Home.jsx
 </div>
 ```
 
-> 在 React 中可以方便的动态决定组件排列顺序，Vue 中很麻烦。
+> 【注意】：在 React 中可以方便的动态决定组件排列顺序，Vue 中很麻烦。
 
-# 抽取 HomeSectionV1 组件
+# 二、HomeSectionV1 组件抽取
 
 src\views\home\cpns\section-v1\SectionV1.jsx
 
@@ -28,11 +28,11 @@ src\views\home\Home.jsx
 </div>
 ```
 
-# 编写折扣区域。
+# 三、折扣房源区域编写
 
 封装获取折扣（discount）房源的请求。
 
-一行3个 RoomItem。动态决定该组件的宽度。
+一行3个 `<RoomItem>`。动态决定该组件的宽度。
 
 src\components\room-item\RoomItem.jsx
 
@@ -48,7 +48,7 @@ return (
 
 src\components\room-item\style.js
 
-```js
+```less
 const RoomItemWrapper = styled.div`
 	box-sizing: border-box;
 	width: ${props => props.itemWidth}%;
@@ -58,7 +58,7 @@ const RoomItemWrapper = styled.div`
 `
 ```
 
-封装一个可以横向滚动的选项卡区域 SectionTabs。监听选项卡中的 item 点击，改变样式。
+封装一个可以横向滚动的选项卡区域 `<SectionTabs>`。监听选项卡中的 item 点击，改变样式。
 
 src\components\section-tabs\SectionTabs.jsx
 
@@ -74,13 +74,21 @@ src\components\section-tabs\SectionTabs.jsx
 ))}
 ```
 
-# 抽取 HomeSectionV2 组件（性能优化）
+# 四、HomeSectionV2 组件抽取（性能优化）
 
-HomeSectionV2 中有 SectionTabs 组件，在选项卡中，选中的 tab item，初始化值如何设置？
+`HomeSectionV2.jsx` 中有 `<SectionTabs>` 组件，在选项卡中，选中的 tab item，初始化值如何设置？
 
-- 思路一：取出对象中第一个 key，并设置。（错误的做法，第一次渲染对象为空对象，useState 初始化了空值）
-- 思路二：使用 useEffect 监听 infoData 是否改变，并设置新值。（这样会造成组件渲染3次）
-- 思路三：当传入的 infoData 有值时，再渲染 HomeSectionV2 组件。（最佳实践）
+思路一：取出对象中第一个 key，并设置。
+
+- 错误的做法，第一次渲染对象为空对象，`useState` 初始化了空值。
+
+思路二：使用 `useEffect` 监听 `infoData` 是否改变，并设置新值。
+
+- 这样会造成组件渲染3次。
+
+思路三：当传入的 `infoData` 有值时，再渲染 `<HomeSectionV2>` 组件。（最佳实践）
+
+- 项目中采用。
 
 src\views\home\Home.jsx
 
@@ -109,7 +117,7 @@ const handleTabClick = useCallback((index, name) => {
 }, [])
 ```
 
-# 编写 HotRecommend 区域
+# 五、热门推荐区域编写
 
  封装获取热门推荐（hotRecommentdist）的网络请求。
 
@@ -119,6 +127,10 @@ const handleTabClick = useCallback((index, name) => {
 {isNotEmptyO(recommendInfo) && <SectionV2 infoData={recommendInfo} />}
  ```
 
-# 编写 SectionFooter 组件
+# 六、SectionFooter 组件编写
+
+编写 `<SectionFooter>` 组件，在 `<SectionV2>` 和 `<SectionV1>` 中使用。
+
+展示“显示更多 xxx 房源”
 
 src\components\section-footer\SectionFooter.jsx

@@ -33,11 +33,17 @@ const Home = memo(() => {
 		<HomeWrapper>
 			<Banners />
 			<div className="content">
+				{/* 折扣 */}
 				{isNotEmptyO(discountInfo) && <SectionV2 infoData={discountInfo} />}
+				{/* 推荐 */}
 				{isNotEmptyO(recommendInfo) && <SectionV2 infoData={recommendInfo} />}
+				{/* 可能想去 */}
 				{isNotEmptyO(longforInfo) && <Longfor infoData={longforInfo} /> }
+				{/* 高性价比 */}
 				{isNotEmptyO(goodPriceInfo) && <SectionV1 infoData={goodPriceInfo} />}
+				{/* 高分房源 */}
 				{isNotEmptyO(highScoreInfo) && <SectionV1 infoData={highScoreInfo} />}
+				{/* Plus 房源 */}
 				{isNotEmptyO(plusInfo) && <SectionV3 infoData={plusInfo} />}
 			</div>
 		</HomeWrapper>
