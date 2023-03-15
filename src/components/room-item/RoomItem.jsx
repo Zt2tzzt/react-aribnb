@@ -1,15 +1,15 @@
-import IconArrowLeft from '@/assets/svg/IconArrowLeft';
-import IconArrowRight from '@/assets/svg/IconArrowRight';
-import Indicator from '@/base-ui/indicator/Indicator';
-import { Rating } from '@mui/material';
-import { Carousel } from 'antd';
+import IconArrowLeft from '@/assets/svg/IconArrowLeft'
+import IconArrowRight from '@/assets/svg/IconArrowRight'
+import Indicator from '@/base-ui/indicator/Indicator'
+import { Rating } from '@mui/material'
+import { Carousel } from 'antd'
 import PropTypes from 'prop-types'
 import React, { memo, useRef, useState } from 'react'
-import RoomItemWrapper from './style';
+import RoomItemWrapper from './style'
 
-const RoomItem = memo((props) => {
+const RoomItem = memo(props => {
 	const { itemData, itemWidth = '25%', handleRoomItemClick } = props
-	const [selectIndex, setSelectIndex] = useState(0);
+	const [selectIndex, setSelectIndex] = useState(0)
 
 	const sliderRef = useRef()
 
@@ -30,48 +30,48 @@ const RoomItem = memo((props) => {
 		handleRoomItemClick?.(itemData)
 	}
 
-	const pictureElement = (
-		<div className="cover">
-			<img src={itemData.picture_url} alt="" />
-		</div>
-	)
-
-	const sliderElement = (
-		<div className="slider">
-			<div className="control">
-				<div className="btn left" onClick={e => onControlClick(e, false)}>
-					<IconArrowLeft width="30" height="30" />
-				</div>
-				<div className="btn right" onClick={e => onControlClick(e, true)}>
-					<IconArrowRight width="30" height="30" />
-				</div>
-			</div>
-			<div className="indicator">
-				<Indicator selectIndex={selectIndex}>
-					{itemData?.picture_urls?.map((item, index) => (
-						<div className="item" key={item}>
-							<span className={`dot ${selectIndex === index ? 'active' : ''}`}></span>
-						</div>
-					))}
-				</Indicator>
-			</div>
-			<Carousel dots={false} ref={sliderRef}>
-				{itemData?.picture_urls?.map(item => (
-					<div className="cover" key={item}>
-						<img src={item} alt="" />
-					</div>
-				))}
-			</Carousel>
-		</div>
-	)
-
 	return (
-		<RoomItemWrapper verifyColor={itemData?.verify_info?.text_color || '#39576a'} itemWidth={itemWidth} onClick={onRoomItemClick}>
+		<RoomItemWrapper
+			verifyColor={itemData?.verify_info?.text_color || '#39576a'}
+			itemWidth={itemWidth}
+			onClick={onRoomItemClick}
+		>
 			<div className="inner">
-				{!itemData.picture_urls ? pictureElement : sliderElement}
-				<div className="desc">
-					{itemData.verify_info.messages.join(' . ')}
-				</div>
+				{!itemData.picture_urls ? (
+					<div className="cover">
+						<img src={itemData.picture_url} alt="" />
+					</div>
+				) : (
+					<div className="slider">
+						<div className="control">
+							<div className="btn left" onClick={e => onControlClick(e, false)}>
+								<IconArrowLeft width="30" height="30" />
+							</div>
+							<div className="btn right" onClick={e => onControlClick(e, true)}>
+								<IconArrowRight width="30" height="30" />
+							</div>
+						</div>
+						<div className="indicator">
+							<Indicator selectIndex={selectIndex}>
+								{itemData?.picture_urls?.map((item, index) => (
+									<div className="item" key={item}>
+										<span
+											className={`dot ${selectIndex === index ? 'active' : ''}`}
+										></span>
+									</div>
+								))}
+							</Indicator>
+						</div>
+						<Carousel dots={false} ref={sliderRef}>
+							{itemData?.picture_urls?.map(item => (
+								<div className="cover" key={item}>
+									<img src={item} alt="" />
+								</div>
+							))}
+						</Carousel>
+					</div>
+				)}
+				<div className="desc">{itemData.verify_info.messages.join(' . ')}</div>
 				<div className="name">{itemData.name}</div>
 				<div className="price">￥{itemData.price}/晚</div>
 				<div className="bottom">
@@ -79,11 +79,11 @@ const RoomItem = memo((props) => {
 						value={itemData.star_rating ?? 5}
 						precision={0.1}
 						readOnly
-						sx={{ fontSize: '12px', color: '#00848a', marginRight: '-1px' }}	
+						sx={{ fontSize: '12px', color: '#00848a', marginRight: '-1px' }}
 					/>
 					<span className="count">{itemData.reviews_count}</span>
 					{itemData.bottom_info && (
-						<span className='extra'>·{itemData.bottom_info?.content}</span>
+						<span className="extra">·{itemData.bottom_info?.content}</span>
 					)}
 				</div>
 			</div>

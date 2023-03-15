@@ -1,7 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-const DetailWrapper = styled.section`
-
-`
+const DetailWrapper = styled.section``
 
 export default DetailWrapper
