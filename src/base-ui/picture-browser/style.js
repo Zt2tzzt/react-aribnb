@@ -24,10 +24,10 @@ const PictureBrowsderWrapper = styled.section`
 	}
 
 	.slider {
+		flex: 1;
 		position: relative;
 		display: flex;
 		justify-content: center;
-		flex: 1;
 
 		.control {
 			position: absolute;
