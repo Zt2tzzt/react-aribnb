@@ -33,13 +33,18 @@ const AppHeader = memo(() => {
 			<HeaderWrapper className={classNames({ fixed: isFixed })}>
 				<div className="content">
 					<div className="top">
-						<Left />
-						<Center isSearch={ isAlpha || isSearch } handleSearchBarClick={e => setIsSearch(true)} />
-						<Right />
+						<Left></Left>
+						<Center
+							isSearch={isAlpha || isSearch}
+							handleSearchBarClick={e => setIsSearch(true)}
+						></Center>
+						<Right></Right>
 					</div>
-					<SearchAreaWrapper isSearch={ isAlpha || isSearch } />
+					<SearchAreaWrapper isSearch={isAlpha || isSearch}></SearchAreaWrapper>
 				</div>
-				{isSearch && <div className='cover' onClick={e => setIsSearch(false)}></div>}
+				{isSearch && (
+					<div className="cover" onClick={e => setIsSearch(false)}></div>
+				)}
 			</HeaderWrapper>
 		</ThemeProvider>
 	)
